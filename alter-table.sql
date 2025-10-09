@@ -1,0 +1,5 @@
+
+
+
+ALTER TABLE booksDROP COLUMN isbn;
+
