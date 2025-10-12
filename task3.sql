@@ -24,9 +24,11 @@ SELECT name FROM translators;
 -- 3 b
 
 
-SELECT name AS "Professionals With Only One Job" FROM authors
+SELECT name AS "Professionals With Only One Job" FROM (
+    SELECT name FROM authors
     UNION 
-SELECT name FROM translators EXCEPT
+SELECT name FROM translators) EXCEPT 
+    SELECT name FROM ( 
     SELECT name FROM authors
         INTERSECT
-    SELECT name FROM translators;
+    SELECT name FROM translators );
